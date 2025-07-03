@@ -58,3 +58,18 @@ Each table uses `UUID` as the primary key. Foreign keys establish relationships:
 - `Uses a subquery with GROUP BY and HAVING to calculate average ratings.`
 - `Filters the properties table to return only those with an average rating above 4.0.`
 
+
+### 5. Correlated Subquery — Users with More Than 3 Bookings
+- `A correlated subquery that checks how many bookings each user has.`
+- `Only includes users whose individual booking count exceeds 3.`
+
+
+### 6. Aggregation — Total Number of Bookings per User
+- `Joins users with bookings to count how many bookings each user has made.`
+- `Uses COUNT() and GROUP BY to aggregate the total.`
+- `A LEFT JOIN ensures users with zero bookings are included with 0 as their count.`
+
+### 7. Window Function — Rank Properties by Number of Bookings
+- `Uses the RANK() window function to assign ranks to properties based on how many bookings they have.`
+- `Properties with the same number of bookings will receive the same rank (standard SQL RANK() behavior).`
+- `LEFT JOIN ensures even properties with zero bookings are included in the results.`
