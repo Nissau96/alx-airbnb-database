@@ -13,7 +13,7 @@ SELECT
 FROM bookings
 INNER JOIN users ON bookings.user_id = users.user_id;
 
--- Measuring performance of LEFT JOIN query
+-- Measuring baseline performance of LEFT JOIN query
 EXPLAIN ANALYZE
 SELECT 
     properties.property_id,
@@ -28,7 +28,7 @@ FROM properties
 LEFT JOIN reviews ON properties.property_id = reviews.property_id
 ORDER BY properties.property_id;
 
--- Measuring performance of FULL OUTER JOIN query
+-- Measuring baseline performance of FULL OUTER JOIN query
 EXPLAIN ANALYZE
 SELECT 
     users.user_id,
@@ -42,9 +42,6 @@ SELECT
     bookings.status
 FROM users
 FULL OUTER JOIN bookings ON users.user_id = bookings.user_id;
-
-
-
 
 -- Index for booking status filtering
 CREATE INDEX idx_bookings_status ON bookings(status);
