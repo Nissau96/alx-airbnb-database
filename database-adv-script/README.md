@@ -70,6 +70,8 @@ Each table uses `UUID` as the primary key. Foreign keys establish relationships:
 - `A LEFT JOIN ensures users with zero bookings are included with 0 as their count.`
 
 ### 7. Window Function — Rank Properties by Number of Bookings
-- `Uses the RANK() window function to assign ranks to properties based on how many bookings they have.`
+- `Uses two window functions:`
+- `RANK() window function to assign ranks to properties based on how many bookings they have.`
+- `ROW_NUMBER() — assigns a unique sequential number to each row.`
 - `Properties with the same number of bookings will receive the same rank (standard SQL RANK() behavior).`
 - `LEFT JOIN ensures even properties with zero bookings are included in the results.`
