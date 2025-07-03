@@ -19,12 +19,13 @@ SELECT
     properties.name AS property_name,
     properties.location,
     properties.pricepernight,
-    review.review_id,
-    review.rating,
-    review.comment,
-    review.created_at AS review_date
+    reviews.review_id,
+    reviews.rating,
+    reviews.comment,
+    reviews.created_at AS review_date
 FROM properties 
-LEFT JOIN reviews  ON properties.property_id = review.property_id;
+LEFT JOIN reviews ON properties.property_id = reviews.property_id
+ORDER BY properties.property_id;
 
 -- 3. FULL OUTER JOIN: Retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user
 SELECT 
